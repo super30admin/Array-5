@@ -20,9 +20,9 @@ class Solution {
         for(char ch : instructions.toCharArray()){
             
             if(ch=='L'){
-                i=(i+3)%4;
+                i=(i+3)%4;   // comes from right to left
             }else if(ch =='R'){
-                i=(i+1)%4;
+                i=(i+1)%4;   // comes from left to right
             }else {
                 x+= dirs[i][0];
                 y+= dirs[i][1];
