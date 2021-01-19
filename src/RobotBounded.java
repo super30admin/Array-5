@@ -1,4 +1,5 @@
 public class RobotBounded {
+	
 	public boolean isRobotBounded(String instructions) {
 
 		if (instructions.length() == 0 || instructions == null)
