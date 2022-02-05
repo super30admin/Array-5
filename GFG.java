@@ -4,6 +4,7 @@ class GFG {
 
 
     public static double calculateTax(List<List<Double>> levels, double salary ){
+        //constant time and space
         Double left = salary;
         Double limit = 0.0;
         Double tax = 0.0;
