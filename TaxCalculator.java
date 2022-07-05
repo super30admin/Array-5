@@ -3,7 +3,7 @@ import java.util.Arrays;
 import java.util.List;
 
 public class TaxCalculator {
-    // TC : O(1) even though we're iterating over a list, it'll always be fixed.
+    // TC : O(1) even though we're iterating over a list, for any financial system it'll always be fixed
     // SC : O(1)
     public double calculateTax(List<List<Double>> taxSlabs, double salary ){
         int i=0;
@@ -36,6 +36,6 @@ public class TaxCalculator {
         taxSlabs.add(Arrays.asList(30000.0, 0.3));
         taxSlabs.add(Arrays.asList(null, 0.4));
 
-        System.out.println("Total tax = " + calculator.calculateTax(taxSlabs, 45000.0));
+        System.out.println("Total tax = " + calculator.calculateTax(taxSlabs, 25000.0));
     }
 }
