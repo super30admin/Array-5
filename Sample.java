@@ -35,3 +35,30 @@ class Solution {
         
     }
 }
+
+//*****171.2303. TAX RATE
+//Time complexity: length of brackets , but at max it would be 4-5 so t.c=constant;
+//Space: o(1);
+//leetcode runnable:y;
+//Any doubts :N;
+
+class Solution {
+    public double calculateTax(int[][] brackets, int income) {
+        double left=income;
+        double limit=0;
+        int i=0;
+        double tax=0;
+        while(left>0)
+        {
+            int[] bracket=brackets[i];
+            double taxable=Math.min(bracket[0]-limit, left);
+            int percent=bracket[1];
+            tax+=taxable*(percent/100.00);
+            
+            left-=taxable;
+            limit=bracket[0];
+            i++ ;
+        }
+        return tax;
+    }
+}
