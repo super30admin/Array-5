@@ -1,4 +1,7 @@
 
+// Time: O(n)
+// Space: O(1)
+
 public class Main {
     public static double calculatetax(List<List<Double>> taxslabs, double salary){
         double left = salary;
