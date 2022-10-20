@@ -32,6 +32,32 @@ Problem2: Calculate Tax
 
 """
 
-"""
-Remark: Yet to solve in the class
-"""
+class Solution:
+    def calculateTax(self, brackets: List[List[int]], income: int) -> float:
+        """
+        TC = O(N)
+        SC = O(1)
+        """
+        prev, curr, total_tax = 0.0, 0.0 ,0.0
+        tax = 0.0
+        amount_left = income
+        taxable_amt = 0.0
+        for elem in brackets:
+            curr = elem[0]
+            taxable_amt = (curr - prev)
+            if taxable_amt <= amount_left:
+                amount_left -= taxable_amt
+                tax += taxable_amt * (elem[1]/100)
+                prev = curr
+            else:
+                tax += amount_left * (elem[1]/100)
+                break
+                
+        return tax
+            
+            
+            
+            
+            
+            
+        
