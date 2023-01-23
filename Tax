@@ -1,0 +1,27 @@
+//TimeComplexity.  O(n)
+//SpaceComplexity. O(1)
+
+class Solution {
+    public double calculateTax(int[][] brackets, int income) {
+        
+        double tax = 0.0;
+        int prev = 0;
+
+        for(int[] nums : brackets){
+           int  curr = nums[0];
+           if(curr < income){
+                 tax += (double)(((curr - prev )* nums[1]));
+           }else{
+               income = income - prev; 
+               if(income > 0){
+                    tax += (double)(income* nums[1]);   
+               }else{
+                   break;
+               }          
+                          
+           }                      
+             prev = nums[0];
+        }
+        return tax/100;
+    }
+}
