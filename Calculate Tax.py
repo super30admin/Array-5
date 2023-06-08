@@ -62,7 +62,3 @@ class Solution:
                 dq.append(curr)
 
         return tax
-
-
-
-print("tax is", tax)
