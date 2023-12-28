@@ -48,11 +48,9 @@
  * d. Case 3: Run the instructions once, if the robot goes farther away from the start, it will continue moving farther away after each set of instructions.
  *      So, initially facing N, after running the instructions, it still faces N....it means it will never reach the Source but it will repeat the same path as from Source till current co-ordinate.
  */
+
 /**
- * TC: If # of tax brackets are considered to be constant, then O(1)
- * else, O(n)
- */
-/*
+ * TC: O(n)
  * SC: O(1)
  */
 
