@@ -1,0 +1,23 @@
+// Time Complexity :O(n)
+// Space Complexity :O(1)
+// Did this code successfully run on Leetcode :yes
+// Any problem you faced while coding this :no
+// Your code here along with comments explaining your approach:
+
+class Solution {
+    public double calculateTax(int[][] brackets, int income) {
+        int i = 0;//index
+        int prevUpperBount=0;//initial upper bound***
+        double totalTax=0;
+        while (income > 0) {
+            int currentupperBount = brackets[i][0];//amount
+            int taxPer = brackets[i][1];//tax percentage
+            int currentTaxableAmount=Math.min((currentupperBount-prevUpperBount),income);
+            totalTax += (currentTaxableAmount*taxPer)/100d;//tax calculation as per current bracket
+            income=income-currentTaxableAmount;//removeing calcultaed income from overall income
+            prevUpperBount=currentupperBount // making currentupperBount as prev for next upperbount
+            i++; //incrementing bracket index
+        }
+        return totalTax;
+    }
+}

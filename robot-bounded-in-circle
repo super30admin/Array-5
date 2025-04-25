@@ -1,0 +1,58 @@
+
+// Time Complexity :O(n)
+// Space Complexity :O(1)
+// Did this code successfully run on Leetcode :yes
+// Any problem you faced while coding this :no
+// Your code here along with comments explaining your approach:class Solution {
+    public boolean isRobotBounded(String instructions) {
+        int n = instructions.length();
+        int x = 0;//initial position of robot
+        int y = 0;//initial position of robot
+        int[][] dirs = { { 0, 1 }, { -1, 0 }, { 0, -1 }, { 1, 0 } };//possible direction of robot as per given instrutions
+        int currdir = 0;
+         for (int j = 0; j < n; j++) {//1 itteration of given instructions 
+                char ch = instructions.charAt(j);
+                if (ch == 'G') {//if instrutions is G
+                    x += dirs[currdir][0];//it moves 1 unit
+                    y += dirs[currdir][1];
+                } else if (ch == 'L') {
+                    currdir = (currdir + 1) % 4;//facing left from where it is(west)
+                } else {
+                    currdir = (currdir + 3) % 4;//facing right from where it is(north)
+                }
+            }
+         if(( x == 0 && y ==0) || currdir != 0 ) return true;//after one itteration of given dirs if its possition is at initial postion of if dir is not 0 (i mean not pointing to south) then there is a chance to come to initial place
+        return false;
+    }
+}
+
+// Time Complexity :
+// Space Complexity :
+// Did this code successfully run on Leetcode :yes
+// Any problem you faced while coding this :no
+
+  public boolean isRobotBounded(String instructions) {
+        int n = instructions.length();
+        int x = 0;
+        int y = 0;
+        int[][] dirs = { { 0, 1 }, { -1, 0 }, { 0, -1 }, { 1, 0 } };
+        int currdir = 0;
+        //possible direction of robot as per given instrutions
+        for (int i = 0; i < 4; i++) {
+             for (int j = 0; j < n; j++) {//1 itteration of given instructions 
+                char ch = instructions.charAt(j);
+                if (ch == 'G') {//if instrutions is G
+                    x += dirs[currdir][0];//it moves 1 unit
+                    y += dirs[currdir][1];
+                } else if (ch == 'L') {
+                    currdir = (currdir + 1) % 4;//facing left from where it is(west)
+                } else {
+                    currdir = (currdir + 3) % 4;//facing right from where it is(north)
+                }
+            
+            }
+        }
+        //after 4 itteration of given dirs if its possition is at initial postion 
+        if(( x == 0 && y ==0) ) return true;
+        return false;
+    }
